@@ -1,5 +1,8 @@
 # Changelog for in-progress
 
+### 03/16/2021 12:01
+Corrected Lower Edu Rich test, passed. Next will be trying to figure out where the highest earning country code went wrong and correcting it.
+
 ### 03/16/2021 11:57
 Corrected the Higher Edu rich test, passed. Next, correcting Lower Edu rich w/ the same method.
 
