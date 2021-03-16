@@ -1,5 +1,22 @@
 # Changelog for in-progress
 
+### 03/16/2021 11:53
+Tests failed the following:
+
+- Higher edu rich:
+    - should be 46.5, is 10.7
+    - possible error:
+        - Calc'd percent from total size of DF, not total amt of people w/ adv degrees.
+- Highest earning country:
+    - Have not checked error here yet
+    - Answer should be Iran?
+- Highest Earning country percentage:
+    - should be 41.9
+    - have not examined error.
+- Lower Edu Rich:
+    - Likely a sim. error to higher edu rich
+    - should be 17.4, not 13.4
+
 ### 03/15/2021 09:50
 Kept adding filling in the functions. Little bit more work to do, then on to to testing it. 
 

@@ -9,36 +9,36 @@ def calculate_demographic_data(print_data=True):
     race_count = df['race'].value_counts()
 
     # What is the average age of men?
-    average_age_men = df.loc[df['sex'] == 'Male', 'age'].mean()
+    average_age_men = round((df.loc[df['sex'] == 'Male', 'age'].mean()), 1)
 
     # What is the percentage of people who have a Bachelor's degree?
-    percentage_bachelors = len(df.loc[df['education'] == 'Bachelors'].index) / len(df.index) * 100 # not sure if they want it 0-100 or 0-1 for percentages
+    percentage_bachelors = round((len(df.loc[df['education'] == 'Bachelors'].index) / len(df.index) * 100), 1) # not sure if they want it 0-100 or 0-1 for percentages
 
     # What percentage of people with advanced education (`Bachelors`, `Masters`, or `Doctorate`) make more than 50K?
     # What percentage of people without advanced education make more than 50K?
 
     # with and without `Bachelors`, `Masters`, or `Doctorate`
-    higher_education = len(df.loc[((df['education'] == 'Bachelors') | (df['education'] == 'Masters') | (df['education'] == 'Doctorate')) & (df['salary'] == '>50K')]) / len(df.index) * 100
-    lower_education = len(df.loc[((df['education'] != 'Bachelors') & (df['education'] != 'Masters') & (df['education'] != 'Doctorate')) & (df['salary'] == '>50K')]) / len(df.index) * 100
+    higher_education = round((len(df.loc[((df['education'] == 'Bachelors') | (df['education'] == 'Masters') | (df['education'] == 'Doctorate')) & (df['salary'] == '>50K')]) / len(df.index) * 100), 1)
+    lower_education = round((len(df.loc[((df['education'] != 'Bachelors') & (df['education'] != 'Masters') & (df['education'] != 'Doctorate')) & (df['salary'] == '>50K')]) / len(df.index) * 100), 1)
 
     # percentage with salary >50K
-    higher_education_rich = len(df.loc[((df['education'] == 'Bachelors') | (df['education'] == 'Masters') | (df['education'] == 'Doctorate')) & (df['salary'] == '>50K')]) / len(df.index) * 100
-    lower_education_rich = len(df.loc[((df['education'] != 'Bachelors') & (df['education'] != 'Masters') & (df['education'] != 'Doctorate')) & (df['salary'] == '>50K')]) / len(df.index) * 100
+    higher_education_rich = round((len(df.loc[((df['education'] == 'Bachelors') | (df['education'] == 'Masters') | (df['education'] == 'Doctorate')) & (df['salary'] == '>50K')]) / len(df.index) * 100), 1)
+    lower_education_rich = round((len(df.loc[((df['education'] != 'Bachelors') & (df['education'] != 'Masters') & (df['education'] != 'Doctorate')) & (df['salary'] == '>50K')]) / len(df.index) * 100), 1)
 
     # What is the minimum number of hours a person works per week (hours-per-week feature)?
     min_work_hours = df.sort_values('hours-per-week').iloc[0, 12]
 
     # What percentage of the people who work the minimum number of hours per week have a salary of >50K?
-    num_min_workers = len(df.loc[df['hours-per-week'] == min_work_hours])
+    num_min_workers = round((len(df.loc[df['hours-per-week'] == min_work_hours])), 1)
 
-    rich_percentage = len(df.loc[(df['hours-per-week'] == min_work_hours) & (df['salary'] == '>50K')]) / num_min_workers * 100
+    rich_percentage = round((len(df.loc[(df['hours-per-week'] == min_work_hours) & (df['salary'] == '>50K')]) / num_min_workers * 100), 1)
 
     # What country has the highest percentage of people that earn >50K?
     highest_earning_country = df.loc[(df['salary'] == '>50K'), 'native-country'].value_counts().index[0]
-    highest_earning_country_percentage = None
+    highest_earning_country_percentage = round((len(df.loc[(df['salary'] == '>50K') & (df['native-country'] == highest_earning_country)]) / len(df.index) * 100), 1)
 
     # Identify the most popular occupation for those who earn >50K in India.
-    top_IN_occupation = None
+    top_IN_occupation = df.loc[(df['native-country'] == 'India') & (df['salary'] == '>50K')]['occupation'].value_counts().index[0]
 
     # DO NOT MODIFY BELOW THIS LINE
 
