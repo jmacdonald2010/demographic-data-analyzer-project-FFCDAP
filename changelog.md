@@ -1,5 +1,8 @@
 # Changelog for in-progress
 
+### 03/16/2021 11:57
+Corrected the Higher Edu rich test, passed. Next, correcting Lower Edu rich w/ the same method.
+
 ### 03/16/2021 11:53
 Tests failed the following:
 
