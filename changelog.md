@@ -1,5 +1,8 @@
 # Changelog for in-progress
 
+### 03/17/2021 08:44
+Passed the highest earning country percentage test. All tests passed. Commit/Push, then merge to main, then edit readme.
+
 ### 03/16/2021 13:00
 Corrected the 'what country has the highest percentage of people earning > 50k' test, albeit in not the most straight-ahead way, but it works. One test left to correct (highest earning country percentage), which should be pretty straight-ahead. Done for the day on this project.
 

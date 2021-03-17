@@ -42,7 +42,7 @@ def calculate_demographic_data(print_data=True):
         gt50ks_percents[i] = (gt50ks[i] / country_series[i]) * 100
     gt50ks_percents = gt50ks_percents.max(level=0)  # used to clean up the series so .idxmax() works
     highest_earning_country = gt50ks_percents.idxmax()
-    highest_earning_country_percentage = round((len(df.loc[(df['salary'] == '>50K') & (df['native-country'] == highest_earning_country)]) / len(df.index) * 100), 1)
+    highest_earning_country_percentage = round((len(df.loc[((df['native-country'] == highest_earning_country) & (df['salary'] == '>50K'))]) / len(df.loc[(df['native-country'] == highest_earning_country)]) * 100), 1)
 
     # Identify the most popular occupation for those who earn >50K in India.
     top_IN_occupation = df.loc[(df['native-country'] == 'India') & (df['salary'] == '>50K')]['occupation'].value_counts().index[0]
