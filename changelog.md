@@ -1,4 +1,7 @@
-# Changelog for in-progress
+# Changelog
+
+## The changelog below is from the development on the in-progress branch. 
+## Future developments are not likely given this project was completed in partial fulfillment for a course.
 
 ### 03/17/2021 08:44
 Passed the highest earning country percentage test. All tests passed. Commit/Push, then merge to main, then edit readme.
